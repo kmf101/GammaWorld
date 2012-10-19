@@ -1,18 +1,23 @@
 package gammaworld
 
 class Mutation {
-	String mutationName
+	String name
 	String genotype
-	String mutationDescription
+	String description
 	
 	
 
     static constraints = {
-		mutationName (blank: false)
+		name (blank: false)
 		genotype (blank: false)
     }
 	
 	static hasMany = {
 		npcs : Npc
+	}
+	
+
+  	String toString() {
+	name
 	}
 }
