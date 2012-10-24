@@ -5,7 +5,6 @@ class Npc {
 	String description
 	String genotype
 	String charClassType
-	Mutation mutation
 	int level
 	int armorClass
 	int mentalDefense
@@ -27,11 +26,11 @@ class Npc {
 		level(min: 1)
 		genotype(blank: false)
 		charClassType(blank: false)
-		mutation(nullable:true)
 		
 		}
-	static hasMany = {
-		mutations : Mutation
-		
-	}
+	static hasMany = [
+		mutations : Mutation	
+	]
+	
+	static belongsTo = Mutation
 }

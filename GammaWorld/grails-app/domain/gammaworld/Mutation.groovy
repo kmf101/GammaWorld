@@ -12,10 +12,9 @@ class Mutation {
 		genotype (blank: false)
     }
 	
-	static hasMany = {
+	static hasMany = [
 		npcs : Npc
-	}
-	
+	]
 
   	String toString() {
 	name

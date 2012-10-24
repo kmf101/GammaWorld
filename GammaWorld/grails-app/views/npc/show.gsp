@@ -59,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${npcInstance?.mutation}">
-				<li class="fieldcontain">
-					<span id="mutation-label" class="property-label"><g:message code="npc.mutation.label" default="Mutation" /></span>
-					
-						<span class="property-value" aria-labelledby="mutation-label"><g:link controller="mutation" action="show" id="${npcInstance?.mutation?.id}">${npcInstance?.mutation?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${npcInstance?.armorClass}">
 				<li class="fieldcontain">
 					<span id="armorClass-label" class="property-label"><g:message code="npc.armorClass.label" default="Armor Class" /></span>
@@ -118,6 +109,17 @@
 					<span id="mentalDefense-label" class="property-label"><g:message code="npc.mentalDefense.label" default="Mental Defense" /></span>
 					
 						<span class="property-value" aria-labelledby="mentalDefense-label"><g:fieldValue bean="${npcInstance}" field="mentalDefense"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${npcInstance?.mutations}">
+				<li class="fieldcontain">
+					<span id="mutations-label" class="property-label"><g:message code="npc.mutations.label" default="Mutations" /></span>
+					
+						<g:each in="${npcInstance.mutations}" var="m">
+						<span class="property-value" aria-labelledby="mutations-label"><g:link controller="mutation" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

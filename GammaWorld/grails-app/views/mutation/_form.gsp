@@ -15,7 +15,7 @@
 		<g:message code="mutation.genotype.label" default="Genotype" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="genotype" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" required="" value="${mutationInstance?.genotype}"/>
+	<g:select name="genotype" required="" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" value="${mutationInstance?.genotype}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: mutationInstance, field: 'description', 'error')} ">
@@ -24,5 +24,13 @@
 		
 	</label>
 	<g:textField name="description" value="${mutationInstance?.description}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: mutationInstance, field: 'npcs', 'error')} ">
+	<label for="npcs">
+		<g:message code="mutation.npcs.label" default="Npcs" />
+		
+	</label>
+	<g:select name="npcs" from="${gammaworld.Npc.list()}" multiple="multiple" optionKey="id" size="5" value="${mutationInstance?.npcs*.id}" class="many-to-many"/>
 </div>
 

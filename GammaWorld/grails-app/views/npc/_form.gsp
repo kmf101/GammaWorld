@@ -23,7 +23,7 @@
 		<g:message code="npc.genotype.label" default="Genotype" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="genotype" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" required="" value="${npcInstance?.genotype}"/>
+	<g:select name="genotype" required="" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" value="${npcInstance?.genotype}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'charClassType', 'error')} required">
@@ -31,15 +31,7 @@
 		<g:message code="npc.charClassType.label" default="Char Class Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="charClassType" from="${['Enforcer','Esper','Examiner','Scout']}" required="" value="${npcInstance?.charClassType}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'mutation', 'error')} ">
-	<label for="mutation">
-		<g:message code="npc.mutation.label" default="Mutation" />
-		
-	</label>
-	<g:select id="mutation" name="mutation.id" from="${gammaworld.Mutation.list()}" optionKey="id" value="${npcInstance?.mutation?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:select name="charClassType" required="" from="${['Enforcer','Esper','Examiner','Scout']}" value="${npcInstance?.charClassType}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'armorClass', 'error')} required">
@@ -88,6 +80,14 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field type="number" name="mentalDefense" required="" value="${npcInstance.mentalDefense}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'mutations', 'error')} ">
+	<label for="mutations">
+		<g:message code="npc.mutations.label" default="Mutations" />
+		
+	</label>
+	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'numberOfAttacks', 'error')} required">

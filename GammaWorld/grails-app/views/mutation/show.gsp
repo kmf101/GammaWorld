@@ -50,6 +50,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${mutationInstance?.npcs}">
+				<li class="fieldcontain">
+					<span id="npcs-label" class="property-label"><g:message code="mutation.npcs.label" default="Npcs" /></span>
+					
+						<g:each in="${mutationInstance.npcs}" var="n">
+						<span class="property-value" aria-labelledby="npcs-label"><g:link controller="npc" action="show" id="${n.id}">${n?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

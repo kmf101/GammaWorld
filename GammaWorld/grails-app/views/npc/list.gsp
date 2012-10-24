@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="charClassType" title="${message(code: 'npc.charClassType.label', default: 'Char Class Type')}" />
 					
-						<th><g:message code="npc.mutation.label" default="Mutation" /></th>
-					
 						<g:sortableColumn property="armorClass" title="${message(code: 'npc.armorClass.label', default: 'Armor Class')}" />
+					
+						<g:sortableColumn property="damage" title="${message(code: 'npc.damage.label', default: 'Damage')}" />
 					
 					</tr>
 				</thead>
@@ -50,9 +50,9 @@
 					
 						<td>${fieldValue(bean: npcInstance, field: "charClassType")}</td>
 					
-						<td>${fieldValue(bean: npcInstance, field: "mutation")}</td>
-					
 						<td>${fieldValue(bean: npcInstance, field: "armorClass")}</td>
+					
+						<td>${fieldValue(bean: npcInstance, field: "damage")}</td>
 					
 					</tr>
 				</g:each>
