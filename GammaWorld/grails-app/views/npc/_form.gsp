@@ -1,7 +1,5 @@
 <%@ page import="gammaworld.Npc" %>
 
-
-
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="npc.name.label" default="Name" />
@@ -23,9 +21,18 @@
 		<g:message code="npc.genotype.label" default="Genotype" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="genotype" required="" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" value="${npcInstance?.genotype}"/>
+	<g:select name="genotype" 
+		required=""
+		from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}"
+		keys="${['ps','ah','ma','sp']}"
+		value="${npcInstance?.genotype}"
+		onchange="${remoteFunction (
+                        controller: 'npc',
+                        action: 'findMutationsByGenotype',
+                        params: '\'genotype=\' +this.value',
+                        onComplete: 'updateDropdownOptions(XMLHttpRequest, \'mutations\')')}" />
 </div>
-
+<g:render template="mutationsForm"/>
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'charClassType', 'error')} required">
 	<label for="charClassType">
 		<g:message code="npc.charClassType.label" default="Char Class Type" />
@@ -80,14 +87,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field type="number" name="mentalDefense" required="" value="${npcInstance.mentalDefense}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'mutations', 'error')} ">
-	<label for="mutations">
-		<g:message code="npc.mutations.label" default="Mutations" />
-		
-	</label>
-	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: npcInstance, field: 'numberOfAttacks', 'error')} required">

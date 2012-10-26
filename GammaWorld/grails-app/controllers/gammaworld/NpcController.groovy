@@ -1,12 +1,16 @@
 package gammaworld
-import grails.converters.*
+
+import grails.converters.JSON
 
 class NpcController {
 
     def scaffold = true
 	
-	def ajaxGetMutations = {
-		def npc = Npc.get(params.id)
-		render npc?.mutations as JSON
+	def dynamicDropdown = {
+	}
+	
+	def findMutationsByGenotype = {
+		println "fuck!"
+		render Mutation.findAllByGenotype(params.genotype) as JSON
 	}
 }

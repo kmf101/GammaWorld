@@ -56,6 +56,9 @@ grails.web.disable.multipart=false
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
 
+// using jquery
+grails.views.javascript.library = "jquery"
+
 // enable query caching by default
 grails.hibernate.cache.queries = true
 

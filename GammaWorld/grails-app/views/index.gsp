@@ -4,6 +4,12 @@
 		<meta name="layout" content="main"/>
 		<title>Welcome to Grails</title>
 		<style type="text/css" media="screen">
+		
+			#nav {
+				margin-top:20px;
+				margin-left:30px;
+				width:100px;
+			}
 			#status {
 				background-color: #eee;
 				border: .2em solid #fff;
@@ -81,6 +87,9 @@
 		</style>
 	</head>
 	<body>
+		<div id=nav >
+			
+		</div>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Application Status</h1>

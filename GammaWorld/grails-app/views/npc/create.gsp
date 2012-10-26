@@ -6,6 +6,39 @@
 		<g:set var="entityName" value="${message(code: 'npc.label', default: 'Npc')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
+<g:javascript>
+	function updateDropdownOptions(e, id) {
+		// The response comes back as a bunch-o-JSON
+		var jsonOptions = eval(e.responseText)  // evaluate JSON
+		if (jsonOptions) {
+			var rselect = document.getElementById(id);
+            removeOptions(rselect);
+            
+            // Rebuild the select
+			for (var i=0; i < jsonOptions.length; i++) {
+				var jsonOption = jsonOptions[i]
+				var opt = document.createElement('option');
+				opt.text = jsonOption.name
+				opt.value = jsonOption.genotype
+				try {
+					rselect.add(opt, null) // standards compliant; doesn't work in IE
+				}
+				catch(ex) {
+					rselect.add(opt) // IE only
+				}
+			}
+		}
+	}
+
+	function removeOptions(elementOptions) {
+		var l = elementOptions.length
+		while (l > 0) {
+			l--
+			elementOptions.remove(l)
+		}
+	}
+	
+</g:javascript>	
 	<body>
 		<a href="#create-npc" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">

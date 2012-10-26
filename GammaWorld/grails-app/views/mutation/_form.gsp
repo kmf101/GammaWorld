@@ -15,7 +15,10 @@
 		<g:message code="mutation.genotype.label" default="Genotype" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="genotype" required="" from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" value="${mutationInstance?.genotype}"/>
+	<g:select name="genotype" required="" 
+		from="${['Pure Strain Human','Altered Human','Mutated Animal','Sentient Plant']}" 
+		keys="${['ps','ah','ma','sp']}"
+		value="${mutationInstance?.genotype}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: mutationInstance, field: 'description', 'error')} ">

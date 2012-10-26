@@ -1,5 +1,7 @@
 
 <%@ page import="gammaworld.Npc" %>
+<g:javascript library="jquery" plugin="jquery" />
+
 <!doctype html>
 <html>
 	<head>
